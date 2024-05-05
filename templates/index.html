@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PictoMagia</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        APRENDAMOS CON UNA EXPERIENCIA MAGICA
+    </nav>
+
+    <div class="contenedor-padre">
+        <div class="contenedor-logo">
+            <img src="{{ url_for('static', path='logo.png') }}" alt="Logo">
+        </div>
+        
+        <div class="contenedor-boton">
+            <button class="mi-boton" onclick="window.location.href='{{ url_base }}login'">Ingresar</button>
+            <button class="mi-boton" onclick="window.location.href='{{ url_base }}register'">Registrar</button>
+        </div>
+        
+
+    </div>
+    
+</body>
+</html>

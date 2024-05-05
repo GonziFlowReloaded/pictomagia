@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seccion: {{ nombre_seccion }}</title>
+    <!-- Integrar Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/home.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-pink-300">
+    <div class=div-nav>
+        <header class="encabezado">
+            APRENDAMOS CON UNA EXPERIENCIA MAGICA
+        </header>
+        <div class="flex justify-center items-center">
+            <nav class="navegacion">
+                <a href="{{ url_base }}home" class="text-black font-bold">Home</a>
+                <a href="{{ url_base }}logout" class="text-black  font-bold">Cerrar sesión</a>
+            </nav>
+        </div>
+    <h1 class="text-3xl font-bold mb-4">{{ nombre_seccion }}</h1>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
+        {% for carpeta in carpetas %}
+            <li class="bg-pink-100 rounded-lg shadow-md p-4">
+                <a href="{{ url_base }}{{ carpeta.ruta_pictograma }}" class="block text-center text-blue-500 font-bold">
+                    <img src="{{ url_for('static', path=carpeta.ruta_imagen_carpeta) }}" alt="Pictograma" class="w-24 h-24 mx-auto">
+                    <p>{{ carpeta.nombre_carpeta|safe }}</p>
+                </a>
+                
+                
+
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

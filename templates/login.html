@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PictoMagia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="div-nav">
+        <a href="{{ url_base }}">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+        </a>
+    </div>
+
+    <!-- Contenido -->
+    <div class="div-login">
+        <div class="contenedor-ingresa">
+
+            <h1>Ingresá</h1>
+
+        </div>
+        <div class="contenedor-info">
+            <p>Iniciá sesión para continuar</p>
+        </div>
+        <div class="div-input">
+            <form action="{{ url_base }}login" method="post">
+                
+                <div class="div-input center">
+                    <form action="{{ url_base }}login" method="post">
+                        {% if message %}
+                            <p class="error" style="color: green;">{{ message }}</p>
+                        {% endif %}
+                        <p>CORREO ELECTRÓNICO</p>
+                        <input type="text" name="email" placeholder="hola@sitioincreible.com.ar" required>
+                        <p>CONTRASEÑA</p>
+                        <input type="password" name="password" placeholder="****" required>
+                        {% if error %}
+                            <p class="error" style="color: red;">{{ error }}</p>
+                        {% endif %}
+                        <input type="submit" value="Ingresá" class="mi-boton">
+                    </form>
+                </div>
+            </form>
+        </div>
+        <p>¿No tienes una cuenta? <a href="{{ url_base }}register">Regístrate</a></p>
+
+    </div>    
+</body>
+</html>

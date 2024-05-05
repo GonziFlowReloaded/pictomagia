@@ -1,0 +1,8 @@
+
+<div class="div-imagen-input">
+    <input type="text" name="nombre" placeholder="Pone tu nombre!" id="nombre">
+    <div class="div-imagen">
+        <img src="{{ url_for('static', path='users/'+ruta_img) }}" alt="Pictograma" class="imagen-jeta">
+    </div>
+</div>
+<img src="{{ url_for('static', path=ruta_pictograma) }}" alt="Pictograma" class="pictograma">

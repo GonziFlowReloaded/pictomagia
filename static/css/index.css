@@ -1,0 +1,79 @@
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #88FFDF;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.8em;
+    letter-spacing: 5px; /* Agrega espacio entre las letras */
+    font-weight: 450;
+    color: #FF9EDB; /* Cambia el color del texto */
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+/* Ajustar el espacio del contenido debajo de la barra de navegación */
+body {
+    /* background-color: #FF9EDA; */
+    background-color: #FF9EDA;
+    height: 100vh;
+    /* margin-top: 60px;
+    padding-top: 24px; */
+    overflow: hidden; /* Elimina la scrollbar */
+}
+
+.contenedor-padre{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedor-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contenedor-boton {
+    position: relative;
+    width: 100%;
+    float: right; /* Alinea el contenedor a la derecha */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    margin-left: auto; /* Mueve el contenedor a la derecha */
+    margin-right: 5%;
+    margin-top: 10%;
+}
+
+.mi-boton {
+    background-color: #FFCDE8; /* Color de fondo */
+    border: none; /* Quita el borde predeterminado */
+    border-radius: 50px; /* Bordes redondeados */
+    color: black; /* Color del texto */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5em;/* Agrega espacio entre las letras */
+    font-weight: 450;
+    font-weight: bold;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    width: 80%;
+    padding: 5% 20px;
+    margin-right: 200px;
+}

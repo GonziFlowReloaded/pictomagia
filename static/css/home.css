@@ -1,0 +1,101 @@
+.encabezado {
+    width: 100%;
+    background-color: #88FFDF;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: 450;
+    color: #FF9EDB;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.encabezado a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
+
+.encabezado a:hover {
+    color: blue;
+}
+
+
+
+.navegacion {
+    margin-top: 30px;
+    border: 2px solid #FFCDE8;
+    border-radius: 60px;
+    background-color: #FFCDE8;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+
+/* Ajustar el espacio del contenido debajo de la barra de navegación */
+body {
+    background-color: #f9a8d4;
+    /* height: 100vh; */
+}
+
+.contenedor-padre {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedor-logo {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.contenedor-logo-seccion{
+    display: flex;
+    justify-content: space-around;
+    align-items: row;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-seccion {
+    display: flex;
+    margin-top: 12%;
+    width: 100%;
+    height: 50%;
+    justify-content: center;
+}
+
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-imagen {
+    border: 5px solid #ffdfcd;
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+}
+
+h1{
+    font-family: 'Quicksand', sans-serif;
+    color: #bb3e81;
+    width: 60%;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 1000;
+    /* margin-bottom: auto; */
+}

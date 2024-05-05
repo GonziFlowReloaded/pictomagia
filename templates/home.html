@@ -1,0 +1,43 @@
+<!-- FILEPATH: /c:/Users/gonza/Desktop/repopepo/si el infierno existe es este tp/templates/home.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/home.css') }}">
+</head>
+<body>
+    <div class="contenedor-padre">
+        <header class="encabezado">
+            APRENDAMOS CON UNA EXPERIENCIA MAGICA
+        </header>
+
+        <div class="navegacion">
+            <a href="{{ url_base }}home" class="">Home</a>
+            <a href="{{ url_base }}logout" class="">Cerrar sesión</a>
+        </div>
+        <div class="contenedor-logo-seccion">
+
+            <div class="contenedor-logo">
+                <img src="{{ url_for('static', path='logo.png') }}" alt="Logo">
+            </div>
+            
+            <div class="contenedor-seccion">
+                <a href="{{ url_base }}seccion_personalizada" class="seccion">
+                    <img src="{{ url_for('static', path='rutinas_personalizadas.jpg') }}" class="seccion-imagen" alt="Logo">
+                    <h1 class="text-2xl font-bold mb-4">Rutinas Personalizadas</h1>
+                </a>
+                <a href="{{ url_base }}seccion_general" class="seccion">
+                    <img src="{{ url_for('static', path='rutinas_generales.png') }}" class="seccion-imagen" alt="Logo">
+                    <h1 class="text-2xl font-bold mb-4">Rutinas Generales</h1>
+                </a>
+                
+            </div>
+
+            
+        </div>
+    </div>
+</body>
+</html>
