@@ -14,7 +14,7 @@ router.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @router.get("/pictogramas/{i}", response_class=HTMLResponse, dependencies=[Depends(auth_cookie)])
-async def read_item(request: Request, i: int, db: Session = Depends(get_db)):
+async def read_item(request: Request, i: str, db: Session = Depends(get_db)):
     print(i)
     #Obtener id del usuario mediante la cookie "session"
     id_usuario = request.cookies.get("session")
