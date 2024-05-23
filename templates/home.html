@@ -16,7 +16,13 @@
 
         <div class="navegacion">
             <a href="{{ url_base }}home" class="">Home</a>
+            
+            {% if admin %}
+                <a href="{{ url_base }}admin" class="">Menu admin</a>
+            {% endif %}
+            
             <a href="{{ url_base }}logout" class="">Cerrar sesión</a>
+                
         </div>
         <div class="contenedor-logo-seccion">
 

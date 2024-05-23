@@ -11,4 +11,9 @@ router = APIRouter()
 
 @router.get("/home", response_class=HTMLResponse, dependencies=[Depends(auth_cookie)])
 async def read_item(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+    admin = request.cookies.get("role")
+    if admin == "1":
+        admin = True
+    else:
+        admin = False
+    return templates.TemplateResponse("home.html", {"request": request, "admin":admin})

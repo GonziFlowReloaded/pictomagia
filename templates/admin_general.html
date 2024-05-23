@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carpetas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Lista de Carpetas</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="{{ url_base }}/admin/general" class="hover:underline">General</a></li>
+                    <li><a href="{{ url_base }}/admin/personalizadas" class="hover:underline">Personalizadas</a></li>
+                    <li><a href="{{ url_base }}/home" class="hover:underline">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4">Carpetas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for carpeta in carpetas %}
+                <div class="bg-white p-4 rounded shadow hover:bg-gray-100">
+
+                    <img src="{{ url_for('static', path=carpeta.ruta_pictograma+".png") }}" alt="Imagen de carpeta" class="mb-2 w-full h-48 object-cover">
+                    
+                    <h3 class="text-lg font-semibold">{{ carpeta.nombre_carpeta }}</h3>
+                    <form action="/carpeta_general/{{ carpeta.id }}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="http_method" value="PUT">
+                        <input type="text" name="nombre" placeholder="Nuevo nombre de carpeta" class="w-full mt-2 p-2 border rounded">
+                        <input type="file" name="pictograma" class="w-full mt-2 p-2 border rounded">
+                        <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 mt-2 hover:bg-blue-600">Actualizar</button>
+                    </form>
+                    <form action="/carpeta_general/{{ carpeta.id }}" method="POST" class="mt-2">
+                        <input type="hidden" name="http_method" value="DELETE">
+                        <button type="submit" class="bg-red-500 text-white rounded px-4 py-2 hover:bg-red-600">Eliminar</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        <form action="/carpeta_general" method="POST" enctype="multipart/form-data" class="mt-6">
+            <input type="text" name="nombre" placeholder="Nombre de la nueva carpeta" class="w-full p-2 border rounded">
+            <input type="file" name="pictograma" class="w-full mt-2 p-2 border rounded">
+            <button type="submit" class="bg-green-500 text-white rounded px-4 py-2 mt-2 hover:bg-green-600">Crear Carpeta</button>
+        </form>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 @gonzo.rar</p>
+        </div>
+    </footer>
+</body>
+</html>

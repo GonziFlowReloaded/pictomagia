@@ -62,9 +62,10 @@ def generate_pdf(request: Request, nombre_nene: str = Form(" "), ruta_img: str =
     #Guardar html en un archivo
     with open("out.html", "w", encoding="utf-8") as file:
         file.write(html_code)
-
+    import os
     from pyhtml2pdf import converter
-    converter.convert(r'file:///C:/Users/gonza/Desktop/repopepo/si%20el%20infierno%20existe%20es%20este%20tp/out.html', "pictograma.pdf")
+    ruta = os.getcwd()
+    converter.convert(r'file:///'+ruta+'/out.html', "pictograma.pdf")
     
     return FileResponse("pictograma.pdf", media_type='application/pdf', filename="pictograma.pdf")
 

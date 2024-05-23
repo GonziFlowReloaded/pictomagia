@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends, Form, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="templates")
 from starlette.staticfiles import StaticFiles
@@ -29,12 +29,16 @@ async def login_user(request: Request, email: str = Form(...), password: str = F
     if not user:
         return templates.TemplateResponse("login.html", {"request": request, "url_base": url_base, "error": "*Usuario o contraseña incorrectos"})
     
-    response = templates.TemplateResponse("home.html", {"request": request, "url_base": url_base})
-    #Hacer que la cookie "session" guarde el valor del id del usuario
+
+    # response = templates.TemplateResponse("home.html", {"request": request, "url_base": url_base, "admin":user.tipo_usuario_id})
+    response = RedirectResponse(url="/home", status_code=302)
 
     response.set_cookie(key="session", value=str(user.id))
+    response.set_cookie(key="role", value=str(user.tipo_usuario_id))
+    #Hacer que la cookie "session" guarde el valor del id del usuario
+
     print(response.headers)
     print(user.id)
-    response.headers["Location"] = "/home"
-    response.status_code = 302
+    print(user.tipo_usuario_id)
+
     return response
