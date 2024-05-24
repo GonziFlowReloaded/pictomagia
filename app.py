@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from dotenv import load_dotenv
 import os
 from starlette.staticfiles import StaticFiles
-from routes import login_route, register_route, home_route, seccion_personalizada_route, seccion_general_route, logout_route, pictograma_route, download_route, pdf_generate_route, admin_route, carpeta_general_route, carpeta_personal_route, usuarios_carpetas_personales_route
+from routes import login_route, register_route, home_route, seccion_personalizada_route, seccion_general_route, logout_route, pictograma_route, pdf_generate_route, admin_route, carpeta_general_route, carpeta_personal_route, usuarios_carpetas_personales_route
 
 
 
@@ -23,7 +23,7 @@ app.include_router(seccion_general_route.router)
 app.include_router(seccion_personalizada_route.router)
 app.include_router(logout_route.router)
 app.include_router(pictograma_route.router)
-app.include_router(download_route.router)
+# app.include_router(download_route.router)
 app.include_router(pdf_generate_route.router)
 app.include_router(admin_route.router)
 app.include_router(carpeta_general_route.router)
@@ -37,4 +37,4 @@ async def read_root(request: Request):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app)
-    
+

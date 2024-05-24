@@ -34,7 +34,7 @@ async def read_item(request: Request, db: Session = Depends(get_db)):
 
     #Hacer una peticion get a la ruta /carpeta_general
     async with httpx.AsyncClient() as client:
-        response = await client.get("http://localhost:8000/carpeta_general", timeout=10)
+        response = await client.get(f"{URL_BASE}carpeta_general", timeout=10)
         carpetas = response.json()
 
     print(carpetas)
