@@ -33,3 +33,8 @@ app.include_router(usuarios_carpetas_personales_route.router)
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "url_base": url_base})
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app)
+    
